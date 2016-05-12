@@ -2,6 +2,9 @@
   "name": "update-me",
   "version": "0.0.0",
   "description": "",
+  "scripts": {
+    "postinstall": "bower install"
+  },
   "main": "gulpfile.js",
   "author": "",
   "license": "ISC",
@@ -15,7 +18,9 @@
     "gulp-uglify": "^1.4.2",
     "jshint-stylish": "^2.0.1",
     "run-sequence": "^1.1.4"
+  },
+  "dependencies": {
+    "bower": "^1.7.9",
+    "express": "^4.13.4"
   }
 }
-
-
