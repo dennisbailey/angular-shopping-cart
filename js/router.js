@@ -1,6 +1,5 @@
-app.config(function($routeProvider) 
-// $locationProvider) 
-{
+app.config(function($routeProvider, $locationProvider) {
+    
     $routeProvider
       .when('/', {
         templateUrl: 'partials/main.html',
@@ -15,5 +14,5 @@ app.config(function($routeProvider)
       .otherwise('/');
       
     // use the HTML5 History API
-//     $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 });
