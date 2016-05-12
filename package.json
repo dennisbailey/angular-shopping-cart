@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "description": "A shopping cart buitl with angularJS",
   "scripts": {
-  "start": "node app",
-  "postinstall": "gulp default"
+    "start": "node app",
+    "postinstall": "gulp default"
   },
   "main": "gulpfile.js",
   "author": "Dennis Bailey",
