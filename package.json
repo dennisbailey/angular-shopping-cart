@@ -1,12 +1,12 @@
 {
-  "name": "update-me",
-  "version": "0.0.0",
-  "description": "",
+  "name": "angular-shopping-cart",
+  "version": "0.1.0",
+  "description": "A shopping cart buitl with angularJS",
   "scripts": {
     "postinstall": "bower install"
   },
   "main": "gulpfile.js",
-  "author": "",
+  "author": "Dennis Bailey",
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.0",
@@ -22,5 +22,13 @@
   "dependencies": {
     "bower": "^1.7.9",
     "express": "^4.13.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dennisbailey/angular-shopping-cart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dennisbailey/angular-shopping-cart/issues"
+  },
+  "homepage": "https://github.com/dennisbailey/angular-shopping-cart#readme"
 }
