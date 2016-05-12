@@ -1,0 +1,70 @@
+<navigation></navigation>
+
+<div class="container">
+
+<searchbar></searchbar>
+
+<div class="row" 
+     style="border-top: 1px solid black;
+            margin-top: 10px;
+            padding-top: 20px;"
+     ng-repeat="tea in inventory | filter: { name: search, 
+                                             categories: categorySearch || ''}">
+  <div class="col-md-4">
+    <img ng-src="{{tea.imageUrl}}" alt="{{tea.name}}">
+  </div>
+  
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-7" style="padding-left: 0px;">
+        <h3 style="margin: 0">{{tea.name | titlecase}}</h3><br>
+      </div>
+      
+      <div class="col-md-3">
+        <div class="dropdown"
+             ng-show="tea.inStock">
+          <button class="btn btn-primary dropdown-toggle pull-right" 
+                  type="button" 
+                  data-toggle="dropdown"
+                  >Quantity: <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li ng-repeat="quantity in quantities" 
+                ng-click="tea.quantity = quantity" 
+                ng-init="tea.quantity=1"
+                ><a>{{quantity}}</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="col-md-2">      
+        <button type="button" 
+                class="btn btn-success"
+                ng-click="addToCart(tea.name, tea.price, tea.quantity); 
+                          shoppingCartCountUpdate();"
+                ng-show="tea.inStock"
+                >Add to bag</button>
+        <button type="button" 
+                class="btn btn-danger"
+                ng-hide="tea.inStock"
+                >Out of Stock</button>
+      </div>
+
+    </div>
+    
+    <div class="row">
+      <p><strong>Price:</strong> {{tea.price / 100 | currency}}</p>
+      <p><strong>Caffeine Scale:</strong> {{tea.caffeineScale}}</p>
+      <p><strong>Ingredients:</strong> {{tea.ingredients | titlecase}}</p>
+      <p><strong>Rating:</strong> {{tea.rating}}</p>
+      <p><strong>In Stock?</strong> {{tea.inStock | yesyesno}}</p>
+      <p><strong>Categories:</strong></p>
+        <ul>
+          <li ng-repeat="category in tea.categories">{{category | titlecase}}</li>
+        </ul>
+    </div>
+        
+  </div>
+ 
+</div>
+</div>
