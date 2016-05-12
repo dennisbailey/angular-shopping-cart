@@ -1,0 +1,50 @@
+<navigation></navigation>
+
+<div class="row">
+  <h3 class="pull-right">Grand Total: {{total / 100 | currency}}</h3>
+</div>
+
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Sub-total</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="tea in cart">
+      <tr ng-click="showMore(tea.name)">
+        <td><h4>{{tea.name | titlecase}}</h4></td>
+        <td><h5>{{tea.quantity}} <a ng-click="increment('up', $index)"
+                                >&#9650;</a>
+                             <a ng-click="increment('down', $index)"
+                                ng-hide="tea.quantity == 1"
+                                >&#9660;</a>
+            </h5>
+        </td>
+        <td><h5>{{tea.quantity * tea.price / 100 | currency}}</h5></td>
+        <td><button type="button" 
+                    class="btn btn-danger"
+                    ng-click="remove(tea.name);"
+                    >Remove</button></td>
+      </tr>
+      <tr ng-show="tea.name == detail.name" ng-repeat="detail in details">
+        <td><img ng-src="{{detail.imageUrl}}" alt="{{detail.name}}"></td>
+        <td>
+            <strong>Price:</strong> {{detail.price / 100 | currency}}<br style="line-height: 2em;">
+            <strong>Caffeine Scale:</strong> {{detail.caffeineScale}}<br style="line-height: 2em;">
+            <strong>Ingredients:</strong> {{detail.ingredients | titlecase}}<br style="line-height: 2em;">
+            <strong>Rating:</strong> {{detail.rating}}<br style="line-height: 2em;">
+            <strong>Categories:</strong><br style="line-height: 2em;">
+            <ul>
+              <li ng-repeat="category in detail.categories">{{category | titlecase}}</li>
+            </ul>
+          </td>
+          <td></td>
+          <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
