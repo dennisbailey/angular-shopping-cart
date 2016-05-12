@@ -1,6 +1,6 @@
-app.config(function($routeProvider, 
-// $locationProvider
-) {
+app.config(function($routeProvider) 
+// $locationProvider) 
+{
     $routeProvider
       .when('/', {
         templateUrl: '../partials/main.html',
